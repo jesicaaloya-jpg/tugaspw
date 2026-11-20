@@ -1,0 +1,23 @@
+
+{
+    "name": "portal-rpl-chatbot",
+    "version": "1.0.0",
+    "description": "Website Portal RPL SMKN 9 Medan dengan chatbot informasi sekolah",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "node server.js"
+    },
+    "keywords": [
+      "chatbot",
+      "smkn9medan",
+      "rpl",
+      "website"
+    ],
+    "author": "Siswa RPL",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.21.2"
+    }
+  }
+  

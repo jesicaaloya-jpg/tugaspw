@@ -1,0 +1,486 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #D9E2F2;
+  color: #243B53;
+}
+
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  grid-template-areas:
+    "header header header"
+    "sidebar main promo"
+    "footer footer footer";
+  gap: 16px;
+  max-width: 1440px; /* Menjaga agar tetap proporsional di Smart TV / 4K */
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  background: #243B53;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #E6EAF2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #B8A4D9;
+}
+
+.hamburger-btn {
+  display: none; /* Disembunyikan di Desktop & Tablet */
+  background: #B8A4D9;
+  color: #243B53;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.sidebar-kiri {
+  grid-area: sidebar;
+  background: #486581;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.sidebar-kiri h3 {
+  color: #F0EBFA;
+}
+
+.sidebar-kiri ul {
+  list-style: none;
+  margin-top: 12px;
+  line-height: 2;
+}
+
+.konten-utama {
+  grid-area: main;
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.konten-utama h2 {
+  color: #243B53;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Kolom di Desktop */
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card {
+  background: #F0EBFA;
+  border: 1px solid #D5C8E8;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.card h4 {
+  color: #243B53;
+}
+
+.card p {
+  color: #526579;
+}
+
+/* TANTANGAN 1: Gambar responsif di dalam kartu */
+.card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.widget-promo {
+  grid-area: promo;
+  background: #B8A4D9;
+  color: #243B53;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.widget-promo h3 {
+  color: #243B53;
+}
+
+.promo-box {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.footer {
+  grid-area: footer;
+  background: #243B53;
+  color: #E6EAF2;
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+/* BREAKPOINT 1: TABLET (601px s.d. 1023px)
+   Perubahan: Grid jadi 2 kolom, Widget Promo DIHILANGKAN */
+@media screen and (min-width: 601px) and (max-width: 1023px) {
+  .page-wrapper {
+    grid-template-columns: 190px 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
+  .widget-promo {
+    display: none;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* TANTANGAN 2: ORIENTATION BREAKPOINT
+   Warna latar header menjadi hijau teal (#0d9488) saat layar <= 850px & landscape */
+   @media screen and (max-width: 850px) and (orientation: landscape) {
+      .header {
+          background-color: #486581 !important;
+      }
+  }
+
+/* BREAKPOINT 2: SMARTPHONE (<= 600px)
+   Perubahan: Grid 1 kolom, Sidebar, Nav Teks & Promo DIHILANGKAN */
+@media screen and (max-width: 600px) {
+  .page-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    padding: 10px;
+  }
+
+  .nav-links,
+  .sidebar-kiri,
+  .widget-promo {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TANTANGAN 3: SMART TV BREAKPOINT (>= 1921px)
+   Memperbesar ukuran font dasar agar nyaman dibaca pada layar Smart TV */
+@media screen and (min-width: 1921px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+/* BREAKPOINT 2: SMARTPHONE / ANDROID (<= 600px) */
+@media screen and (max-width: 600px) {
+  .page-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sidebar"
+      "main"
+      "footer";
+    padding: 80px 10px 10px 10px; /* Jarak atas 80px agar konten tidak tertutup header fixed */
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(36, 59, 83, 0.2);
+    flex-wrap: wrap;
+  }
+
+  .nav-links,
+  .sidebar-kiri,
+  .widget-promo {
+    display: none;
+  }
+
+  /* Muncul saat tombol hamburger ditekan */
+  .sidebar-kiri.aktif {
+    display: block;
+    grid-area: sidebar;
+    animation: fadeIn 0.25s ease-in-out;
+  }
+
+  .nav-links.aktif {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 10px;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.card {
+  overflow: hidden;
+}
+
+/* css untuk logo seklah dan jurusan */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*posisi logo*/
+
+/* LOGO PADA SIDEBAR */
+/* LOGO PADA SIDEBAR */
+.sidebar-kiri .logo-img,
+.widget-promo .logo-img {
+display: block;
+width: 150px;
+height: 150px;
+object-fit: contain;
+margin: 0 auto 15px;
+background: transparent;
+}
+/* =========================================
+ STYLE CHATBOT SMKN 9 MEDAN
+ ========================================= */
+.chat-toggle-btn {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: #243B53;
+color: #FFFFFF;
+border: 2px solid #B8A4D9;
+padding: 12px 18px;
+border-radius: 50px;
+font-weight: bold;
+font-size: 0.95rem;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(36, 59, 83, 0.3);
+z-index: 1100;
+transition: transform 0.2s, background 0.2s;
+}
+
+.chat-toggle-btn:hover {
+background: #486581;
+transform: scale(1.05);
+}
+
+.chatbot-box {
+position: fixed;
+bottom: 75px;
+right: 20px;
+width: 330px;
+max-width: calc(100vw - 40px);
+background: #FFFFFF;
+border: 1px solid #D5C8E8;
+border-radius: 12px;
+box-shadow: 0 8px 24px rgba(36, 59, 83, 0.25);
+display: none;
+flex-direction: column;
+overflow: hidden;
+z-index: 1100;
+}
+
+.chatbot-box.open {
+display: flex;
+animation: fadeIn 0.25s ease-in-out;
+}
+
+.chat-header {
+background: #243B53;
+color: #FFFFFF;
+padding: 12px 16px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-weight: bold;
+font-size: 0.95rem;
+}
+
+.chat-close-btn {
+background: none;
+border: none;
+color: #FFFFFF;
+font-size: 1.4rem;
+cursor: pointer;
+line-height: 1;
+}
+
+.chat-messages {
+padding: 12px;
+height: 210px;
+overflow-y: auto;
+background: #F4F7FA;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.msg {
+padding: 9px 12px;
+border-radius: 8px;
+font-size: 0.85rem;
+line-height: 1.4;
+max-width: 85%;
+}
+
+.msg.bot {
+background: #F0EBFA;
+color: #243B53;
+border: 1px solid #D5C8E8;
+align-self: flex-start;
+}
+
+.msg.user {
+background: #486581;
+color: #FFFFFF;
+align-self: flex-end;
+}
+
+.chat-quick-questions {
+padding: 8px 10px;
+background: #FFFFFF;
+border-top: 1px solid #E6EAF2;
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+.quick-btn {
+background: #D9E2F2;
+color: #243B53;
+border: 1px solid #BCCCDC;
+border-radius: 6px;
+padding: 6px 10px;
+font-size: 0.8rem;
+text-align: left;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+.quick-btn:hover {
+background: #B8A4D9;
+color: #243B53;
+font-weight: 500;
+}
+
+.chat-input-area {
+display: flex;
+border-top: 1px solid #D5C8E8;
+}
+
+.chat-input-area input {
+flex: 1;
+border: none;
+padding: 10px 12px;
+font-size: 0.85rem;
+outline: none;
+}
+
+.chat-input-area button {
+background: #243B53;
+color: #FFFFFF;
+border: none;
+padding: 0 16px;
+font-weight: bold;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+.chat-input-area button:hover {
+background: #486581;
+}
+
+
+/* FORMAT PESAN CHATBOT */
+.msg {
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+/* JARAK ANTARBARIS DAFTAR NAMA GURU */
+.msg.bot {
+  line-height: 1.8;
+  padding: 12px 15px;
+  overflow-wrap: break-word;
+}

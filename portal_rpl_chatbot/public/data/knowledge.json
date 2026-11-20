@@ -1,0 +1,39 @@
+
+{
+    "school": {
+      "name": "SMKN 9 Medan",
+      "location": "Medan, Sumatera Utara",
+      "description": "SMKN 9 Medan merupakan sekolah menengah kejuruan yang memiliki beberapa program keahlian."
+    },
+    "departments": [
+      {
+        "name": "Rekayasa Perangkat Lunak (RPL)",
+        "description": "Jurusan RPL mempelajari pembuatan perangkat lunak, pemrograman, pengembangan website, aplikasi, database, dan teknologi informasi."
+      }
+    ],
+    "teachers": [],
+    "faq": [
+      {
+        "keywords": ["smkn 9", "sekolah", "nama sekolah"],
+        "answer": "SMKN 9 Medan adalah sekolah menengah kejuruan yang berlokasi di Medan, Sumatera Utara."
+      },
+      {
+        "keywords": ["rpl", "rekayasa perangkat lunak"],
+        "answer": "RPL adalah singkatan dari Rekayasa Perangkat Lunak. Jurusan ini mempelajari pemrograman, pembuatan website, aplikasi, database, dan pengembangan perangkat lunak."
+      },
+      {
+        "keywords": ["belajar rpl", "materi rpl", "pelajaran rpl"],
+        "answer": "Di jurusan RPL, siswa mempelajari pemrograman, HTML, CSS, JavaScript, database, serta pengembangan aplikasi."
+      },
+      {
+        "keywords": ["prospek kerja", "pekerjaan rpl", "lulusan rpl"],
+        "answer": "Lulusan RPL dapat mengembangkan karier di bidang teknologi, seperti web developer, programmer, database administrator, dan pengembang aplikasi."
+      },
+      {
+        "keywords": ["karya siswa", "proyek siswa"],
+        "answer": "Karya siswa RPL dapat berupa website, aplikasi, dan proyek teknologi lainnya."
+      }
+    ],
+    "fallback": "Maaf, informasi tersebut belum tersedia di chatbot. Silakan tanyakan hal lain tentang SMKN 9 Medan atau jurusan RPL."
+  }
+  
